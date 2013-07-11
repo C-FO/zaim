@@ -1,0 +1,7 @@
+*.DS_Store
+*.rbc
+.bundle
+.yardoc
+vendor/bundle
+coverage/*
+doc/*
