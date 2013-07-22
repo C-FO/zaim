@@ -7,10 +7,6 @@ describe Zaim::Response::RaiseError do
       @raise_error = Zaim::Response::RaiseError.new({}, Zaim::Error)
     end
 
-    it 'raises no error' do
-      -> { @raise_error.on_complete({status: 200}) }.must_be_silent
-    end
-
     it 'raises 400 Zaim::Error::BadRequest' do
       -> { @raise_error.on_complete({status: 400}) }.must_raise Zaim::Error::BadRequest
     end

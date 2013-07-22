@@ -15,7 +15,7 @@ module Zaim
           end
         end
       end
-      const_set(:Attributes, mod)
+      const_set(:Attributes, mod) unless defined? Attributes
       include mod
     end
 
