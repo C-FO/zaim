@@ -21,13 +21,6 @@ module Zaim
       @client
     end
 
-    # Has a client been initialized on the Zaim module
-    #
-    # @return [Boolean]
-    def client?
-      !!@client
-    end
-
     def respond_to?(method, include_private=false)
       client.respond_to?(method, include_private)
     end

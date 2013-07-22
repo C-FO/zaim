@@ -24,16 +24,6 @@ module Zaim
         ENV['ZAIM_CONSUMER_SECRET']
       end
 
-      # @return [String]
-      def oauth_token
-        ENV['ZAIM_OAUTH_TOKEN']
-      end
-
-      # @return [String]
-      def oauth_token_secret
-        ENV['ZAIM_OAUTH_TOKEN_SECRET']
-      end
-
       # @return [Integer]
       def api_version
         API_VERSION

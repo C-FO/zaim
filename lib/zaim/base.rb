@@ -19,20 +19,21 @@ module Zaim
       include mod
     end
 
-    # Initializes a new object
-    #
-    # @param attrs [Hash]
-    # @return [Zaim::Base]
-    def initialize(attrs={})
-      @attrs = attrs
-    end
-
     # Returns a new object based on the response hash
     #
     # @param response [Hash]
     # @return [Zaim::Base]
     def self.from_response(response={})
       new(response[:body])
+    end
+
+    # Initializes a new object
+    #
+    # @param attrs [Hash]
+    # @return [Zaim::Base]
+    def initialize(attrs={})
+      @attrs = attrs
+      self
     end
 
     # Fetches an attribute of an object using hash notation

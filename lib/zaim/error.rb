@@ -10,7 +10,9 @@ module Zaim
 
     # @return [Array]
     def self.descendants
-      ObjectSpace.each_object(::Class).select{|klass| klass < self}
+      ObjectSpace.each_object(::Class).select do |klass|
+        klass < self && defined? klass::HTTP_STATUS_CODE
+      end
     end
 
     # Initializes a new Error object

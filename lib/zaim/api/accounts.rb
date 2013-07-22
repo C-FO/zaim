@@ -28,7 +28,7 @@ module Zaim
       # @example Return the list of default accounts
       #   Zaim.account_get
       def account_get(options={})
-        objects_from_response(Zaim::Account, :get, '/account', :categories, options)
+        objects_from_response(Zaim::Account, :get, '/account', :accounts, options)
       end
 
     end

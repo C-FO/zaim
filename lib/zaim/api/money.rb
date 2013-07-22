@@ -21,6 +21,8 @@ module Zaim
         objects_from_response(Zaim::Money, :get, '/home/money', :money, options)
       end
 
+      ## TODO: POST methods WIP
+
       # Input the authenticating user's payment data
       #
       # @see https://dev.zaim.net/home/api#payment_post
@@ -38,17 +40,17 @@ module Zaim
       # @option options [String] :place The place where the payment is charged, up to 100 characters.
       # @example Update the authenticating user's status
       #   Zaim.payment_post()
-      def payment_post(category_id, genre_id, amount, date, options={})
-        date = Date.parse(date) if date.is_a? String
+      # def payment_post(category_id, genre_id, amount, date, options={})
+      #   date = Date.parse(date) if date.is_a? String
 
-        post_options = options.merge(
-          category_id: category_id,
-          genre_id: genre_id,
-          amount: amount,
-          date: date.strftime('%Y-%m-%d')
-        )
-        object_from_response(Zaim::Money::Response, :post, '/home/money/payment', post_options)
-      end
+      #   post_options = options.merge(
+      #     category_id: category_id,
+      #     genre_id: genre_id,
+      #     amount: amount,
+      #     date: date.strftime('%Y-%m-%d')
+      #   )
+      #   object_from_response(Zaim::Money::Response, :post, '/home/money/payment', post_options)
+      # end
     end
   end
 end

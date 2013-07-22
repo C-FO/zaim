@@ -35,15 +35,15 @@ module Zaim
     end
 
     def kiriban_stamp
-      @kiriban_stamp ||= Zaim::Stamp.new(@attr[:stamps][:kiriban])
+      @kiriban_stamp ||= Zaim::Stamp.new(@attrs[:stamps][:kiriban] || {})
     end
 
     def repeat_stamp
-      @repeat_stamp ||= Zaim::Stamp.new(@attr[:stamps][:repeat])
+      @repeat_stamp ||= Zaim::Stamp.new(@attrs[:stamps][:repeat] || {})
     end
 
     def first_stamp
-      @repeat_stamp ||= Zaim::Stamp.new(@attr[:stamps][:first])
+      @repeat_stamp ||= Zaim::Stamp.new(@attrs[:stamps][:first] || {})
     end
 
   end

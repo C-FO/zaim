@@ -2,9 +2,7 @@ require 'zaim/identity'
 
 module Zaim
   class Account < Zaim::Identity
-    attr_reader :name, :sort, :color, :icon_url,
-      :description, :currency_code, :goal, 
-      :abs_flag, :edit_flag, :active
+    attr_reader :name, :sort, :mode, :parent_account_id, :active
 
     # Time when the Money object was last modified on Zaim
     #

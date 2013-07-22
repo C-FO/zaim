@@ -8,10 +8,6 @@ require 'zaim/error/decode_error'
 module Zaim
   module Request
 
-    def delete(path, params={})
-      request(:delete, path, params)
-    end
-
     def get(path, params={})
       request(:get, path, params)
     end
@@ -24,6 +20,10 @@ module Zaim
       request(:put, path, params)
     end
 
+    def delete(path, params={})
+      request(:delete, path, params)
+    end
+
   private
 
     # Returns a Faraday::Connection object
@@ -33,7 +33,7 @@ module Zaim
       return @connection if @connection
 
       @connection = Faraday.new(Zaim::Configuration::ENDPOINT) do |conn|
-        conn.request :oauth, credentials if credentials?
+        conn.request :oauth, credentials if respond_to?(:credentials?) && credentials?
         conn.request :json
         conn.use Zaim::Response::RaiseError, Zaim::Error::ClientError
         conn.response :json, :content_type => /\bjson$/
