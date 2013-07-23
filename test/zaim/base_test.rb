@@ -2,18 +2,20 @@ require 'test_helper'
 
 describe Zaim::Base do
   before do
-    @base = Zaim::Base.new(id: 1)
+    @base = Zaim::Base.new(id: 1, name: 'abc')
   end
 
   describe '.attr_reader' do
+    before do
+      Zaim::Base.attr_reader(:name)
+    end
+
     it 'defines a setter method' do
-      Zaim::Base.attr_reader(:attribute)
-      @base.must_respond_to :attribute
+      @base.name.must_equal 'abc'
     end
 
     it 'defines a existence checker method' do
-      Zaim::Base.attr_reader(:attribute)
-      @base.must_respond_to :attribute?
+      @base.name?.must_equal true
     end
   end
 
@@ -45,7 +47,7 @@ describe Zaim::Base do
 
   describe '#attrs' do
     it 'returns a hash of attributes' do
-      @base.attrs.must_equal({id: 1})
+      @base.attrs.must_equal({id: 1, name: 'abc'})
     end
   end
 

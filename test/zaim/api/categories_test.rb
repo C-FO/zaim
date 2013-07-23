@@ -3,19 +3,34 @@ require 'test_helper'
 describe Zaim::API::Categories do
 
   describe '#category_home_get' do
-    before do
-      stub_get('v2/home/category').to_return(body: fixture('category_home.json'), headers: {content_type: 'application/json; charset=utf-8'})
-      @categories = Zaim::Client.new.category_home_get
+
+    describe 'with authorized user' do
+      before do
+        stub_get('v2/home/category').to_return(body: fixture('category_home.json'), headers: {content_type: 'application/json; charset=utf-8'})
+        @categories = Zaim::Client.new.category_home_get
+      end
+
+      after { WebMock.reset! }
+
+      it 'requests the correct resource' do
+        assert_request_requested a_get('v2/home/category')
+      end
+
+      it 'returns an array of instances of Zaim::Category' do
+        @categories.count.must_equal @categories.select {|a| a.is_a? Zaim::Category}.count
+      end
     end
 
-    after { WebMock.reset! }
+    describe 'without authorization' do
+      before do
+        stub_get('v2/home/category').to_return(status: [401, 'Unauthorized'])
+      end
 
-    it 'requests the correct resource' do
-      assert_request_requested a_get('v2/home/category')
-    end
+      after { WebMock.reset! }
 
-    it 'returns an array of instances of Zaim::Category' do
-      @categories.count.must_equal @categories.select {|a| a.is_a? Zaim::Category}.count
+      it 'raises Zaim::Error::Unauthorized' do
+        -> { Zaim::Client.new.category_home_get }.must_raise Zaim::Error::Unauthorized
+      end
     end
   end
 

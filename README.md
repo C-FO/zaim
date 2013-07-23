@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Quick Start Guide
 
-**Register your application with Zaim.**
+**Register your application with [Zaim Developers Center][Zaim].**
 
 ```ruby
 Zaim.configure do |config|
@@ -26,6 +26,8 @@ Zaim.configure do |config|
   config.consumer_secret = YOUR_CONSUMER_SECRET
 end
 ```
+
+[Zaim]: https://dev.zaim.net/
 
 **Instantiate a Zaim::Client for each user's access**
 

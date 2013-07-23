@@ -13,7 +13,7 @@ module Zaim
     end
 
     def post(path, params={})
-      request(:put, path, params)
+      request(:post, path, params)
     end
 
     def put(path, params={})

@@ -18,4 +18,14 @@ describe Zaim do
     end
   end
 
+  describe '.method_missing' do
+    it 'delegates to Zaim::Client' do
+      Zaim.oauth_token?.must_equal false
+    end
+
+    it 'returns NoMethodError with undefined method' do
+      -> { Zaim.undefined }.must_raise NoMethodError
+    end
+  end
+
 end
