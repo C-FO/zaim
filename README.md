@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Quick Start Guide
 
-1. Register your application with Zaim.
+**Register your application with Zaim.**
 
 ```ruby
 Zaim.configure do |config|
@@ -27,7 +27,7 @@ Zaim.configure do |config|
 end
 ```
 
-2. Instantiate a Zaim::Client for each user's access
+**Instantiate a Zaim::Client for each user's access**
 
 ```ruby
 client = Zaim::Client.new(
@@ -36,15 +36,15 @@ client = Zaim::Client.new(
 )
 ```
 
-3. You can make requests as the authenticated user
+**You can make requests as the authenticated user**
 
 ```ruby
-tom.user_verify
+client.user_verify
 ```
 
 ## Usage Examples
 
-** Initialize
+**Initialize**
 
 ```ruby
 Zaim.configure do |config|
@@ -58,67 +58,56 @@ client = Zaim::Client.new(
 )
 ```
 
-* User
-
-** Fetch the requesting user's information
+**Fetch the requesting user's information**
 
 ```ruby
 client.user_verify # => alias: current_user
 ```
 
-* Money
-
-** Fetch the list of input money data
+**Fetch the list of input money data**
 
 ```ruby
 client.money_get # => alias: money
 ```
 
-* Categories
 
-** Fetch the list of requesting user's categories
+**Fetch the list of requesting user's categories**
 
 ```ruby
 client.category_home_get # => alias: categories
 ```
 
-** Fetch the list of system default categories
+**Fetch the list of system default categories**
 
 ```ruby
 client.category_get # => alias: default_categories
 ```
 
-* Genres
-
-** Fetch the list of requesting user's genres
+**Fetch the list of requesting user's genres**
 
 ```ruby
 client.genre_home_get # => alias: genres
 ```
 
-** Fetch the list of system default genres
+**Fetch the list of system default genres**
 
 ```ruby
 client.genre_get # => alias: default_genres
 ```
 
-* Accounts
-
-** Fetch the list of requesting user's accounts
+**Fetch the list of requesting user's accounts**
 
 ```ruby
 client.account_home_get # => alias: accounts
 ```
 
-** Fetch the list of system default accounts
+**Fetch the list of system default accounts**
 
 ```ruby
 client.account_get # => alias: default_accounts
 ```
 
-* Currencies
-
-** Fetch the list of available currencies
+**Fetch the list of available currencies**
 
 ```ruby
 client.currency_get # => alias: currencies
