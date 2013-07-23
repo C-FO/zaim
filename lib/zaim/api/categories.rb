@@ -18,6 +18,7 @@ module Zaim
       def category_home_get(options={})
         objects_from_response(Zaim::Category, :get, '/home/category', :categories, options)
       end
+      alias categories category_home_get
 
       # Returns the list of default categories
       #
@@ -29,7 +30,8 @@ module Zaim
       #   Zaim.category_get
       def category_get(options={})
         objects_from_response(Zaim::Category, :get, '/category', :categories, options)
-      end      
+      end
+      alias default_categories category_get
 
     end
   end

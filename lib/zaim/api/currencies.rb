@@ -17,6 +17,7 @@ module Zaim
       def currency_get(options={})
         objects_from_response(Zaim::Currency, :get, '/currency', :currencies, options)
       end
+      alias currencies currency_get
 
     end
   end

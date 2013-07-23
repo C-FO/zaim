@@ -18,6 +18,7 @@ module Zaim
       def genre_home_get(options={})
         objects_from_response(Zaim::Genre, :get, '/home/genre', :genres, options)
       end
+      alias genres genre_home_get
 
       # Returns the list of default genres
       #
@@ -30,6 +31,7 @@ module Zaim
       def genre_get(options={})
         objects_from_response(Zaim::Genre, :get, '/genre', :genres, options)
       end
+      alias default_genres genre_get
 
     end
   end

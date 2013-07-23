@@ -20,6 +20,7 @@ module Zaim
       def money_get(options={})
         objects_from_response(Zaim::Money, :get, '/home/money', :money, options)
       end
+      alias money money_get
 
       ## TODO: POST methods WIP
 

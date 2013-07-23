@@ -18,6 +18,7 @@ module Zaim
       def account_home_get(options={})
         objects_from_response(Zaim::Account, :get, '/home/account', :accounts, options)
       end
+      alias accounts account_home_get
 
       # Returns the list of default accounts
       #
@@ -30,6 +31,7 @@ module Zaim
       def account_get(options={})
         objects_from_response(Zaim::Account, :get, '/account', :accounts, options)
       end
+      alias default_accounts account_get
 
     end
   end
