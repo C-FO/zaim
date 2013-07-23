@@ -14,7 +14,7 @@ describe Zaim do
 
   describe '.respond_to?' do
     it 'delegates to Zaim::Client' do
-      Zaim.respond_to?(:verify).must_equal true
+      Zaim.respond_to?(:user_verify).must_equal true
     end
   end
 

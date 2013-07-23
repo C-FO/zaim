@@ -2,10 +2,10 @@ require 'test_helper'
 
 describe Zaim::API::Users do
 
-  describe '#verify' do
+  describe '#user_verify' do
     before do
-      stub_get('v2/home/user/verify').to_return(body: fixture('verify.json'), headers: {content_type: 'application/json; charset=utf-8'})
-      @user = Zaim::Client.new.verify
+      stub_get('v2/home/user/verify').to_return(body: fixture('user_verify.json'), headers: {content_type: 'application/json; charset=utf-8'})
+      @user = Zaim::Client.new.user_verify
     end
 
     after { WebMock.reset! }

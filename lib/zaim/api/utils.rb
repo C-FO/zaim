@@ -65,7 +65,7 @@ module Zaim
       end
 
       def user_name
-        @user_name ||= verify.name
+        @user_name ||= user_verify.name
       end
 
       def path_with_version(path)

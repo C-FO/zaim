@@ -21,7 +21,7 @@ module Zaim
 
       # Returns the list of default genres
       #
-      # @see https://dev.zaim.net/home/api#genre_home_get
+      # @see https://dev.zaim.net/home/api#genre_get
       # @authentication Not Required
       # @return [Array] Array of {Zaim::Genre}
       # @param options [Hash] A customizable set of options.

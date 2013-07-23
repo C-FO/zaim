@@ -14,11 +14,11 @@ module Zaim
       # @return [Zaim::User] The authenticated user.
       # @param options [Hash] A customizable set of options.
       # @example Return the requesting user if authentication was successful
-      #   Zaim.verify
-      def verify(options={})
+      #   Zaim.user_verify
+      def user_verify(options={})
         object_from_response(Zaim::User, :get, '/home/user/verify', options)
       end
-      alias current_user verify
+      alias current_user user_verify
 
     end
   end
