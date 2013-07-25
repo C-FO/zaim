@@ -3,9 +3,9 @@ require 'faraday'
 
 describe Zaim::Request do
   before do
-    @clean_class = Class.new
+    @clean_room = Class.new
 
-    class << @clean_class
+    class << @clean_room
       include Zaim::Request
     end
   end
@@ -15,7 +15,7 @@ describe Zaim::Request do
     describe 'with success result' do
       before do
         stub_get('zaim/get').with(query: {a: '1'})
-        @clean_class.get('zaim/get', {a: '1'})
+        @clean_room.get('zaim/get', {a: '1'})
       end
 
       after { WebMock.reset! }
@@ -33,7 +33,7 @@ describe Zaim::Request do
       after { WebMock.reset! }
 
       it 'raises Zaim::Error::ClientError' do
-        -> { @clean_class.get('zaim/error') }.must_raise Zaim::Error::ClientError
+        -> { @clean_room.get('zaim/error') }.must_raise Zaim::Error::ClientError
       end
     end
 
@@ -44,7 +44,7 @@ describe Zaim::Request do
     describe 'with success result' do
       before do
         stub_post('zaim/post').with(body: {a: '1'})
-        @clean_class.post('zaim/post', {a: '1'})
+        @clean_room.post('zaim/post', {a: '1'})
       end
 
       after { WebMock.reset! }
@@ -62,7 +62,7 @@ describe Zaim::Request do
       after { WebMock.reset! }
 
       it 'raises Zaim::Error::ClientError' do
-        -> { @clean_class.post('zaim/error') }.must_raise Zaim::Error::ClientError
+        -> { @clean_room.post('zaim/error') }.must_raise Zaim::Error::ClientError
       end
     end
 
@@ -79,7 +79,7 @@ describe Zaim::Request do
       after { WebMock.reset! }
 
       it 'with custom path and params' do
-        @clean_class.put('zaim/put', {a: '1'})
+        @clean_room.put('zaim/put', {a: '1'})
         assert_request_requested a_put('zaim/put').with(body: {a: '1'})
       end
     end
@@ -92,7 +92,7 @@ describe Zaim::Request do
       after { WebMock.reset! }
 
       it 'raises Zaim::Error::ClientError' do
-        -> { @clean_class.put('zaim/error') }.must_raise Zaim::Error::ClientError
+        -> { @clean_room.put('zaim/error') }.must_raise Zaim::Error::ClientError
       end
     end
 
@@ -103,7 +103,7 @@ describe Zaim::Request do
     describe 'with success result' do
       before do
         stub_delete('zaim/delete').with(query: {a: '1'})
-        @clean_class.delete('zaim/delete', {a: '1'})
+        @clean_room.delete('zaim/delete', {a: '1'})
       end
 
       after { WebMock.reset! }
@@ -121,7 +121,7 @@ describe Zaim::Request do
       after { WebMock.reset! }
 
       it 'raises Zaim::Error::ClientError' do
-        -> { @clean_class.delete('zaim/error') }.must_raise Zaim::Error::ClientError
+        -> { @clean_room.delete('zaim/error') }.must_raise Zaim::Error::ClientError
       end
     end
 

@@ -39,6 +39,18 @@ module Zaim
         '/v' + @api_version.to_s + path
       end
 
+      def parse_date(date)
+        if date.is_a? String
+          Date.parse(date).strftime('%Y-%m-%d')
+        elsif date.is_a? Date
+          date.strftime('%Y-%m-%d')
+        else
+          raise
+        end
+      rescue => ex
+        raise ArgumentError.new 'invalid date'
+      end
+
     end
   end
 end

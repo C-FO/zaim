@@ -16,7 +16,7 @@ module Zaim
     #
     # @return [Zaim::Client]
     def client
-      @client = Zaim::Client.new(options) unless defined?(@client) #&& @client.options == options.hash
+      @client = Zaim::Client.new(options) unless defined?(@client) && @client.hash == options.hash
       @client
     end
 

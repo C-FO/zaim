@@ -34,6 +34,7 @@ module Zaim
 
       @connection = Faraday.new(Zaim::Configuration::ENDPOINT) do |conn|
         conn.request :oauth, credentials if respond_to?(:credentials?) && credentials?
+        conn.request :url_encoded
         conn.request :json
         conn.use Zaim::Response::RaiseError, Zaim::Error::ClientError
         conn.response :json, :content_type => /\bjson$/

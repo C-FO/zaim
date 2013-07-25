@@ -5,9 +5,10 @@ require 'zaim/user'
 
 module Zaim
   class Money < Zaim::Identity
-    attr_reader :type, :user_id, :category_id,
+    attr_reader :mode, :user_id, :category_id,
       :genre_id, :to_account_id, :from_account_id,
-      :amount, :comment, :place, :currency_code
+      :amount, :comment, :place, :currency_code,
+      :active, :name, :receipt_id
 
   	# Date when the Money object was created on Zaim
   	#

@@ -10,11 +10,11 @@ describe Zaim::Base do
       Zaim::Base.attr_reader(:name)
     end
 
-    it 'defines a setter method' do
+    it 'defines a getter method' do
       @base.name.must_equal 'abc'
     end
 
-    it 'defines a existence checker method' do
+    it 'defines an existence checker method' do
       @base.name?.must_equal true
     end
   end
@@ -37,7 +37,7 @@ describe Zaim::Base do
     end
 
     it 'with a string argument' do
-      @base[:class].must_equal Zaim::Base
+      @base['class'].must_equal Zaim::Base
     end
 
     it 'with a missing attribute' do

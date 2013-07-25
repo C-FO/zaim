@@ -5,10 +5,14 @@ require 'zaim/version'
 module Zaim
   module Configuration
 
-    ENDPOINT = 'https://api.zaim.net/'.freeze unless defined? Zaim::Configuration::ENDPOINT
+    extend Forwardable
 
     attr_accessor :consumer_key, :api_version, :user_agent
     attr_writer :consumer_secret
+    def_delegator :options, :hash
+
+
+    ENDPOINT = 'https://api.zaim.net/'.freeze unless defined? Zaim::Configuration::ENDPOINT
 
     class << self
 

@@ -1,13 +1,16 @@
 require 'test_helper'
 
 describe Zaim::API::Categories do
+  before do
+    @client = Zaim::Client.new
+  end
 
   describe '#category_home_get' do
 
     describe 'with authorized user' do
       before do
         stub_get('v2/home/category').to_return(body: fixture('category_home.json'), headers: {content_type: 'application/json; charset=utf-8'})
-        @categories = Zaim::Client.new.category_home_get
+        @categories = @client.category_home_get
       end
 
       after { WebMock.reset! }
@@ -29,15 +32,21 @@ describe Zaim::API::Categories do
       after { WebMock.reset! }
 
       it 'raises Zaim::Error::Unauthorized' do
-        -> { Zaim::Client.new.category_home_get }.must_raise Zaim::Error::Unauthorized
+        -> { @client.category_home_get }.must_raise Zaim::Error::Unauthorized
       end
+    end
+  end
+
+  describe '#categories' do
+    it 'is the alias of #category_home_get' do
+      @client.method(:categories).must_equal @client.method(:category_home_get)
     end
   end
 
   describe '#category_get' do
     before do
       stub_get('v2/category').to_return(body: fixture('category.json'), headers: {content_type: 'application/json; charset=utf-8'})
-      @categories = Zaim::Client.new.category_get
+      @categories = @client.category_get
     end
 
     after { WebMock.reset! }
@@ -48,6 +57,12 @@ describe Zaim::API::Categories do
 
     it 'returns an array of instances of Zaim::Category' do
       @categories.count.must_equal @categories.select {|a| a.is_a? Zaim::Category}.count
+    end
+  end
+
+  describe '#default_categories' do
+    it 'is the alias of #category_get' do
+      @client.method(:default_categories).must_equal @client.method(:category_get)
     end
   end
 
