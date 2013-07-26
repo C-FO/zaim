@@ -1,8 +1,6 @@
 require 'zaim/api/utils'
 require 'zaim/money'
 
-require 'date'
-
 module Zaim
   module API
     module Money
@@ -11,12 +9,12 @@ module Zaim
       # Returns the list of input data if authentication was successful, otherwise raises {Zaim::Error::Unauthorized}
       #
       # @see https://dev.zaim.net/home/api#money_get
-      # @authentication Requires user context
+      # @note Authentication Required
       # @raise [Zaim::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Array] Array of {Zaim::Money}.
       # @param options [Hash] A customizable set of options.
       # @example Return the list of input money data if authentication was successful.
-      #   Zaim.money_get
+      #   client.money_get
       def money_get(options={})
         objects_from_response(Zaim::Money, :get, '/home/money', :money, options)
       end
@@ -25,7 +23,7 @@ module Zaim
       # Input payment data
       #
       # @see https://dev.zaim.net/home/api#payment_post
-      # @authentication Requires user context
+      # @note Authentication Required
       # @raise [Zaim::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Zaim::Money::Response] The reward stamps and the requested user's info.
       # @param category_id [Integer] The ID of the payment's category.
@@ -38,7 +36,7 @@ module Zaim
       # @option options [String] :name The name of the product charged for the payment, up to 100 characters.
       # @option options [String] :place The place where the payment is charged, up to 100 characters.
       # @example
-      #   Zaim.payment_post(1, 2, 300, '2013-01-01', {comment: 'memo'})
+      #   client.payment_post(1, 2, 300, '2013-01-01', {comment: 'memo'})
       def payment_post(category_id, genre_id, amount, date, options={})
         post_options = options.merge(
           category_id: category_id,
@@ -53,7 +51,7 @@ module Zaim
       # Input income data
       #
       # @see https://dev.zaim.net/home/api#payment_post
-      # @authentication Requires user context
+      # @note Authentication Required
       # @raise [Zaim::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Zaim::Money::Response] The reward stamps and the requested user's info.
       # @param category_id [Integer] The ID of the income's category.
@@ -63,7 +61,7 @@ module Zaim
       # @option options [Integer] :to_account_id The ID of the account which the income is payed into.
       # @option options [String] :comment The comment for the income, up to 100 characters.
       # @example
-      #   Zaim.income_post(1, 200, '2013-01-01', {comment: 'memo'})
+      #   client.income_post(1, 200, '2013-01-01', {comment: 'memo'})
       def income_post(category_id, amount, date, options={})
         post_options = options.merge(
           category_id: category_id,
@@ -77,7 +75,7 @@ module Zaim
       # Input transfer data
       #
       # @see https://dev.zaim.net/home/api#transfer_post
-      # @authentication Requires user context
+      # @note Authentication Required
       # @raise [Zaim::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Zaim::Money::Response] The reward stamps and the requested user's info.
       # @param amount [Integer] The transfer amount.
@@ -87,7 +85,7 @@ module Zaim
       # @param options [Hash] A customizable set of options.
       # @option options [String] :comment The comment for the transfer, up to 100 characters.
       # @example
-      #   Zaim.transfer_post(100, '2013-01-01', 2, 3, {comment: 'memo'})
+      #   client.transfer_post(100, '2013-01-01', 2, 3, {comment: 'memo'})
       def transfer_post(amount, date, from_account_id, to_account_id, options={})
         post_options = options.merge(
           amount: amount,
@@ -102,7 +100,7 @@ module Zaim
       # Update money data
       #
       # @see https://dev.zaim.net/home/api#money_put
-      # @authentication Requires user context
+      # @note Authentication Required
       # @raise [Zaim::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Zaim::Money::Response] The reward stamps and the requested user's info.
       # @param type [Symbol, String]
@@ -116,7 +114,7 @@ module Zaim
       # @option options [Integer] :category_id The ID of the money's category.
       # @option options [String] :comment The comment for the money, up to 100 characters.
       # @example
-      #   Zaim.money_put(:income, 1, 100, '2013-01-01', {comment: 'memo'})
+      #   client.money_put(:income, 1, 100, '2013-01-01', {comment: 'memo'})
       def money_put(type, id, amount, date, options={})
         raise "invalid type: #{type}" unless [:payment, :income, :transfer].include?(type.to_sym)
 
@@ -142,13 +140,13 @@ module Zaim
       # Delete money data
       #
       # @see https://dev.zaim.net/home/api#money_delete
-      # @authentication Requires user context
+      # @note Authentication Required
       # @raise [Zaim::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Zaim::Money::Response] The reward stamps and the requested user's info.
       # @param type [Symbol, String]
       # @param id [Integer]
       # @example
-      #   Zaim.money_delete(100, '2013-01-01', 2, 3, {comment: 'memo'})
+      #   client.money_delete(:payment, 1)
       def money_delete(type, id)
         raise "invalid type: #{type}" unless [:payment, :income, :transfer].include?(type.to_sym)
 

@@ -38,7 +38,7 @@ describe Zaim::API::Categories do
   end
 
   describe '#categories' do
-    it 'is the alias of #category_home_get' do
+    it 'is an alias of #category_home_get' do
       @client.method(:categories).must_equal @client.method(:category_home_get)
     end
   end
@@ -61,7 +61,7 @@ describe Zaim::API::Categories do
   end
 
   describe '#default_categories' do
-    it 'is the alias of #category_get' do
+    it 'is an alias of #category_get' do
       @client.method(:default_categories).must_equal @client.method(:category_get)
     end
   end

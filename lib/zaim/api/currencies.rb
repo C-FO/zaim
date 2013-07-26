@@ -9,7 +9,7 @@ module Zaim
       # Returns the list of default currencies
       #
       # @see https://dev.zaim.net/home/api#currency_get
-      # @authentication Not Required
+      # @note Authentication Not Required
       # @return [Array] Array of {Zaim::Currency}
       # @param options [Hash] A customizable set of options.
       # @example Return the list of default currencies

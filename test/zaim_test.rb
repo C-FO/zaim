@@ -23,7 +23,7 @@ describe Zaim do
       Zaim.oauth_token?.must_equal false
     end
 
-    it 'returns NoMethodError with undefined method' do
+    it 'raises NoMethodError when undefined method is called' do
       -> { Zaim.undefined }.must_raise NoMethodError
     end
   end

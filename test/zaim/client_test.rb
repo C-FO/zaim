@@ -9,7 +9,7 @@ describe Zaim::Client do
   end
 
   describe '#oauth_token_secret' do
-    it 'should not have its getter method' do
+    it 'does not have its getter method' do
       Zaim::Client.new.wont_respond_to :oauth_token_secret
     end
   end
@@ -30,7 +30,7 @@ describe Zaim::Client do
       client.oauth_token?.must_equal false
     end
 
-    it 'returns false when neither oauth_token or oauth_token_secret are set' do
+    it 'returns false when neither oauth_token nor oauth_token_secret are set' do
       client = Zaim::Client.new
       client.oauth_token?.must_equal false
     end

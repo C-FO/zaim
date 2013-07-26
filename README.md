@@ -6,7 +6,7 @@ A Ruby interface to the Zaim API.
 
 Add this line to your application's Gemfile:
 
-    gem 'zaim-ruby'
+    gem 'zaim-ruby', require: 'zaim'
 
 And then execute:
 

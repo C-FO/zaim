@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'yard'
 
 group :development do
+  gem 'redcarpet'
+  gem 'yard'
   gem 'pry'
 end
 

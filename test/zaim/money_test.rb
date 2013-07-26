@@ -54,17 +54,32 @@ describe Zaim::Money::Response do
     it 'returns an instance of Zaim::Stamp' do
       @response.kiriban_stamp.must_be_instance_of Zaim::Stamp
     end
+
+    it 'returns nil when response has no stamps' do
+      response = Zaim::Money::Response.new(user: {id: 1}, money: {id: 1})
+      response.kiriban_stamp.must_be_nil
+    end
   end
 
   describe '#repeat_stamp' do
     it 'returns an instance of Zaim::Stamp' do
       @response.repeat_stamp.must_be_instance_of Zaim::Stamp
     end
+
+    it 'returns nil when response has no stamps' do
+      response = Zaim::Money::Response.new(user: {id: 1}, money: {id: 1})
+      response.repeat_stamp.must_be_nil
+    end
   end
 
   describe '#first_stamp' do
     it 'returns an instance of Zaim::Stamp' do
       @response.first_stamp.must_be_instance_of Zaim::Stamp
+    end
+
+    it 'returns nil when response has no stamps' do
+      response = Zaim::Money::Response.new(user: {id: 1}, money: {id: 1})
+      response.first_stamp.must_be_nil
     end
   end
 

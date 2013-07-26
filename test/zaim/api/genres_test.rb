@@ -38,7 +38,7 @@ describe Zaim::API::Genres do
   end
 
   describe '#genres' do
-    it 'is the alias of #genre_home_get' do
+    it 'is an alias of #genre_home_get' do
       @client.method(:genres).must_equal @client.method(:genre_home_get)
     end
   end
@@ -61,7 +61,7 @@ describe Zaim::API::Genres do
   end
 
   describe '#default_genres' do
-    it 'is the alias of #genre_get' do
+    it 'is an alias of #genre_get' do
       @client.method(:default_genres).must_equal @client.method(:genre_get)
     end
   end

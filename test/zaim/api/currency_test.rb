@@ -23,7 +23,7 @@ describe Zaim::API::Currencies do
   end
 
   describe '#currencies' do
-    it 'is the alias of #currency_get' do
+    it 'is an alias of #currency_get' do
       @client.method(:currencies).must_equal @client.method(:currency_get)
     end
   end

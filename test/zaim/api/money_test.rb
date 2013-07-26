@@ -39,7 +39,7 @@ describe Zaim::API::Money do
   end
 
   describe '#money' do
-    it 'is the alias of #money_get' do
+    it 'is an alias of #money_get' do
       @client.method(:money).must_equal @client.method(:money_get)
     end
   end
@@ -78,7 +78,7 @@ describe Zaim::API::Money do
   end
 
   describe '#create_payment' do
-    it 'is the alias of #payment_post' do
+    it 'is an alias of #payment_post' do
       @client.method(:create_payment).must_equal @client.method(:payment_post)
     end
   end
@@ -117,7 +117,7 @@ describe Zaim::API::Money do
   end
 
   describe '#create_income' do
-    it 'is the alias of #income_post' do
+    it 'is an alias of #income_post' do
       @client.method(:create_income).must_equal @client.method(:income_post)
     end
   end
@@ -156,7 +156,7 @@ describe Zaim::API::Money do
   end
 
   describe '#create_transfer' do
-    it 'is the alias of #transfer_post' do
+    it 'is an alias of #transfer_post' do
       @client.method(:create_transfer).must_equal @client.method(:transfer_post)
     end
   end

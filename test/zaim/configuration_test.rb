@@ -16,7 +16,7 @@ describe Zaim::Configuration do
     end
 
     describe 'consumer_key' do
-      it 'should be configurable' do
+      it 'is configurable' do
         @clean_room.configure do |config|
           config.consumer_key = '1'
         end
@@ -26,7 +26,7 @@ describe Zaim::Configuration do
     end
 
     describe 'api_version' do
-      it 'should be configurable' do
+      it 'is configurable' do
         @clean_room.configure do |config|
           config.api_version = '1'
         end
@@ -36,7 +36,7 @@ describe Zaim::Configuration do
     end
 
     describe 'user_agent' do
-      it 'should be configurable' do
+      it 'is configurable' do
         @clean_room.configure do |config|
           config.user_agent = '1'
         end
@@ -46,7 +46,7 @@ describe Zaim::Configuration do
     end
 
     describe 'consumer_secret' do
-      it 'should be configurable' do
+      it 'is configurable' do
         @clean_room.configure do |config|
           config.consumer_secret = '1'
         end
@@ -54,7 +54,7 @@ describe Zaim::Configuration do
         @clean_room.instance_variable_get('@consumer_secret').must_equal '1'
       end
 
-      it 'should have not its getter' do
+      it 'has its getter' do
         @clean_room.wont_respond_to :consumer_secret
       end
     end

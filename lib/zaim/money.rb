@@ -36,15 +36,27 @@ module Zaim
     end
 
     def kiriban_stamp
-      @kiriban_stamp ||= Zaim::Stamp.new(@attrs[:stamps][:kiriban] || {})
+      @kiriban_stamp ||= if @attrs[:stamps] && @attrs[:stamps][:kiriban]
+        Zaim::Stamp.new(@attrs[:stamps][:kiriban])
+      else
+        nil
+      end
     end
 
     def repeat_stamp
-      @repeat_stamp ||= Zaim::Stamp.new(@attrs[:stamps][:repeat] || {})
+      @repeat_stamp ||= if @attrs[:stamps] && @attrs[:stamps][:repeat]
+        Zaim::Stamp.new(@attrs[:stamps][:repeat])
+      else
+        nil
+      end
     end
 
     def first_stamp
-      @repeat_stamp ||= Zaim::Stamp.new(@attrs[:stamps][:first] || {})
+      @first_stamp ||= if @attrs[:stamps] && @attrs[:stamps][:first]
+        Zaim::Stamp.new(@attrs[:stamps][:first])
+      else
+        nil
+      end
     end
 
   end

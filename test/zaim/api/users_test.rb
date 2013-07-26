@@ -23,7 +23,7 @@ describe Zaim::API::Users do
   end
 
   describe '#current_user' do
-    it 'is the alias of #user_verify' do
+    it 'is an alias of #user_verify' do
       @client.method(:current_user).must_equal @client.method(:user_verify)
     end
   end

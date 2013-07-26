@@ -38,7 +38,7 @@ describe Zaim::API::Accounts do
   end
 
   describe '#accounts' do
-    it 'is the alias of #account_home_get' do
+    it 'is an alias of #account_home_get' do
       @client.method(:accounts).must_equal @client.method(:account_home_get)
     end
   end
@@ -61,7 +61,7 @@ describe Zaim::API::Accounts do
   end
 
   describe '#default_accounts' do
-    it 'is the alias of #account_get' do
+    it 'is an alias of #account_get' do
       @client.method(:default_accounts).must_equal @client.method(:account_get)
     end
   end
