@@ -54,7 +54,7 @@ describe Zaim::Configuration do
         @clean_room.instance_variable_get('@consumer_secret').must_equal '1'
       end
 
-      it 'has its getter' do
+      it 'does not have its getter' do
         @clean_room.wont_respond_to :consumer_secret
       end
     end

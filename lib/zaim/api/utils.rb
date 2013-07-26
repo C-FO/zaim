@@ -1,4 +1,5 @@
 require 'zaim/core_ext/hash'
+require 'date'
 
 module Zaim
   module API

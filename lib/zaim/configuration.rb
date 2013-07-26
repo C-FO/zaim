@@ -11,7 +11,6 @@ module Zaim
     attr_writer :consumer_secret
     def_delegator :options, :hash
 
-
     ENDPOINT = 'https://api.zaim.net/'.freeze unless defined? Zaim::Configuration::ENDPOINT
 
     class << self
