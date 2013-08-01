@@ -1,5 +1,8 @@
 # The Zaim Ruby Gem
 
+[![Build Status](https://travis-ci.org/C-FO/zaim.png?branch=master)][zaim-gem]
+[![Coverage Status](https://coveralls.io/repos/C-FO/zaim/badge.png?branch=master)][coveralls]
+
 A Ruby interface to the Zaim API.
 
 ## Installation
@@ -18,7 +21,7 @@ Or install it yourself as:
 
 ## Quick Start Guide
 
-**Register your application with [Zaim Developers Center][Zaim].**
+**Register your application with [Zaim Developers Center][zaim].**
 
 ```ruby
 Zaim.configure do |config|
@@ -27,7 +30,9 @@ Zaim.configure do |config|
 end
 ```
 
-[Zaim]: https://dev.zaim.net/
+[coveralls]: https://coveralls.io/r/C-FO/zaim
+[zaim-gem]: https://travis-ci.org/C-FO/zaim
+[zaim]: https://dev.zaim.net/
 
 **Instantiate a Zaim::Client for each user's access**
 
